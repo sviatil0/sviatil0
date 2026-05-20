@@ -54,8 +54,8 @@
 | **[mini-allocator](https://github.com/sviatil0/mini-allocator)** | Drop-in `malloc`/`free`/`realloc` with segregated free lists, benchmarked vs glibc | C |
 | **[gridfs](https://github.com/sviatil0/gridfs)** | A toy filesystem in safe Rust — inode tables, block bitmaps, indirect pointers, `fsck` | Rust |
 | **[claude-code-haptic](https://github.com/sviatil0/claude-code-haptic)** | Trackpad haptic feedback for Claude Code on macOS — buzz your wrist when input is needed | TypeScript |
+| **[worndly](https://github.com/sviatil0/worndly)** · [live demo](https://soleksii.pythonanywhere.com/game/login/) | Multilingual Wordle-style word game — Django, Bootstrap, Chart.js (team project) | Python |
 | **[image-modifier](https://github.com/sviatil0/image-modifier)** · [live demo](https://image-modifier-alpha.vercel.app) | Browser image editing tool, deployed on Vercel | TypeScript |
-| **[riscv-snippets](https://github.com/sviatil0/riscv-snippets)** | Polished RISC-V assembly — linked lists, sort, search, CRC32, runnable in qemu | Assembly |
 
 > 🌱 Also building **Tweeds** — a startup project (private) — across backend, frontend, and an AI-detection service.
 
