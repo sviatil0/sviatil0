@@ -1,7 +1,7 @@
 <h1 align="center">Hi, I'm Stefan 👋</h1>
 
 <p align="center">
-  <b>CS @ University of Notre Dame</b> &nbsp;·&nbsp; Systems, full-stack & applied AI &nbsp;·&nbsp; Seeking SWE internships
+  <b>CS @ University of Notre Dame</b> &nbsp;·&nbsp; Systems, full-stack & applied AI
 </p>
 
 <p align="center">
@@ -15,6 +15,7 @@
 
 - 🎓 Computer Science student at the **University of Notre Dame** (Notre Dame, IN)
 - ⚙️ I like working close to the metal — operating systems, C, systems programming — and shipping full products on top
+- 🚀 Currently building a startup ([Tweeds](https://github.com/Tweeds-org))
 - 🌐 Comfortable across the stack: Python/Django backends, TypeScript/React frontends, deployed on Vercel
 - 🤖 Interested in applied AI and developer tooling
 - 📫 Reach me: **texnar499@gmail.com**
@@ -74,5 +75,5 @@
 ---
 
 <p align="center">
-  <i>Open to SWE internship opportunities — let's connect.</i>
+  <i>Always happy to connect and talk shop.</i>
 </p>
