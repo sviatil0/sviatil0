@@ -1,120 +1,81 @@
 <h1 align="center">Hi, I'm Stefan</h1>
 
 <p align="center">
-  <b>CS @ University of Notre Dame</b> &nbsp;·&nbsp; Systems programming, cross-platform C++, applied AI
+  <b>CS @ Notre Dame '27</b> &nbsp;·&nbsp; Software Engineer @ ClickUp (summer 2026) &nbsp;·&nbsp; Founding Engineer @ Desync AI &nbsp;·&nbsp; Founder, Innovation Sprint Lab
 </p>
 
 <p align="center">
-  <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/badge/Featured-CoreMetrics-1b5e20?style=for-the-badge&logo=cplusplus&logoColor=white" alt="Featured: CoreMetrics"/></a>
-  <a href="https://www.linkedin.com/in/soleksii/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="mailto:soleksiienko1@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+  <a href="https://www.linkedin.com/in/soleksii/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/badge/Featured-CoreMetrics-1b5e20?style=for-the-badge&logo=cplusplus&logoColor=white" alt="Featured: CoreMetrics"/></a>
 </p>
 
 ---
 
-### Featured: CoreMetrics
+### Projects
 
-> **Real-time cross-platform system monitor (CPU / RAM / GPU / processes), built on a from-scratch C++23 GUI library over raw SDL3 pixel surfaces.** No Qt, no Electron, no Dear ImGui. Every widget rasterizes itself, every metric is read by a native backend, every frame is laid out by a custom tree.
-
-<p align="center">
-  <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/badge/C%2B%2B-23-00599C?logo=cplusplus&logoColor=white" alt="C++23"/></a>
-  <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/badge/SDL-3-1a1a1a" alt="SDL3"/></a>
-  <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/badge/platforms-macOS%20%7C%20Linux%20%7C%20Windows-informational" alt="Platforms"/></a>
-  <a href="https://github.com/sviatil0/coremetrics/actions/workflows/c-cpp.yml"><img src="https://github.com/sviatil0/coremetrics/actions/workflows/c-cpp.yml/badge.svg?branch=main" alt="CI"/></a>
-  <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fsviatil0%2Fcoremetrics%2Fmain%2F.github%2Fbadges%2Fcontribution.json" alt="Stefan's code share"/></a>
-  <a href="https://github.com/sviatil0/coremetrics/releases/latest"><img src="https://img.shields.io/github/v/release/sviatil0/coremetrics?label=release" alt="Latest release"/></a>
-</p>
+| Project | What it is |
+|---|---|
+| **[coremetrics](https://github.com/sviatil0/coremetrics)** | Cross-platform system monitor (CPU / RAM / GPU / processes) on a from-scratch C++23 GUI toolkit over raw SDL3 pixel surfaces; no Qt, no Electron, no Dear ImGui. 728 commits, 30 releases, 33 test suites, Linux + macOS + Windows CI. 92% of the ~17K-line codebase by `git blame`, computed live by a CI job on every push to `main`. Installs via a [Homebrew tap](https://github.com/sviatil0/homebrew-coremetrics). |
+| **[gridfs](https://github.com/sviatil0/gridfs)** | FAT-style filesystem in 100% safe Rust: superblock, inode table, free-block bitmap, direct + single-indirect block pointers, an `fsck`-style consistency checker, and a small CLI. 18 tests, zero `unsafe`. |
+| **[mini-allocator](https://github.com/sviatil0/mini-allocator)** | Drop-in `malloc` / `free` / `realloc` in C: 6 segregated free lists, boundary tags with O(1) coalescing, guard-word corruption checks, benchmarked against glibc via `make bench`. |
+| **[microshell](https://github.com/sviatil0/microshell)** | POSIX-ish shell in C11: pipelines, redirects, job control (`jobs` / `fg` / `bg` / `kill`), 12 builtins, variable expansion, CI. |
+| **[nd-canvas-study](https://github.com/sviatil0/nd-canvas-study)** | AI exam-prep pipeline: scrapes Canvas course materials with Playwright, indexes them into a Chroma vector DB, surfaces under-prepared exam topics, and serves a local Django UI. |
+| **[email-relationship-analyzer](https://github.com/sviatil0/email-relationship-analyzer)** | Gmail relationship intelligence: OAuth2 ingest of sent threads, Gemini analysis (participants, context, sentiment), structured results stored in MongoDB. |
+| **[claude-code-haptic](https://github.com/sviatil0/claude-code-haptic)** | Trackpad haptic feedback for Claude Code on macOS; shipped as a VS Code Marketplace extension. |
 
 <p align="center">
   <a href="https://github.com/sviatil0/coremetrics"><img src="https://raw.githubusercontent.com/sviatil0/coremetrics/main/assets/screenshot-system.png" alt="CoreMetrics System tab" width="48%"/></a>
   <a href="https://github.com/sviatil0/coremetrics"><img src="https://raw.githubusercontent.com/sviatil0/coremetrics/main/assets/screenshot-processes.png" alt="CoreMetrics Processes tab" width="48%"/></a>
 </p>
 
-What's interesting about it:
+---
 
-- **Three native metrics backends, one header.** `SystemMetrics` reads live data from `/proc` + `/sys` on Linux, mach + IOKit on macOS, and PDH + Toolhelp on Windows, selected at compile time via `#ifdef`.
-- **From-scratch UI stack.** Every widget rasterizes itself onto a raw `SDL_Surface` through one `Screen` primitive layer: `drawPixel`, Bresenham `drawLine`, parallel `drawBox` / `drawTriangle` (fills partitioned across a `ThreadPool` and joined on `std::future`s per frame).
-- **Event-driven, no scene rebuilds.** Clicks trickle top-down through the layout tree; tab switches drain as paired show/hide events in a single pass; metrics mutate widgets in place every 500 ms.
-- **Modern C++23 on purpose.** A `Cloneable<Derived>` CRTP mixin gives every widget a covariant `clone()` for free; ownership flows through `unique_ptr`; the layout tree is a generic `Tree<T>`.
-- **17 test suites** with a Linux + macOS + Windows GitHub Actions matrix (all three legs required), plus a non-blocking AddressSanitizer + UndefinedBehaviorSanitizer leg.
-- **Solo-led on a 4-person Notre Dame team.** 81.6% of the source by line, verified live by a CI job that runs `git blame -w -C -M` on every push to `main`.
+### Currently
 
-Read the repo: **[github.com/sviatil0/coremetrics](https://github.com/sviatil0/coremetrics)** &middot; or jump straight to the [API reference](https://github.com/sviatil0/coremetrics/blob/main/API.md) and [architecture map](https://github.com/sviatil0/coremetrics/blob/main/DOCS.md).
+- **ClickUp** (summer 2026): software engineer on the Chat team.
+- **Desync AI**: founding engineer.
+- **Innovation Sprint Lab** (Notre Dame): founder and program director. 15 engineers selected from 70+ applicants, $10K+ raised; mentors include ClickUp's CTO and Teamworthy Ventures.
+
+Previously co-founded **Tweeds**, an early-stage AI startup, where I built the production async Python pipeline (2024 to 2026).
 
 ---
 
-### About
-
-- Computer Science student at the **University of Notre Dame** (Notre Dame, IN)
-- I like working close to the metal: operating systems, C and C++23, cross-platform systems programming, and shipping full products on top
-- Currently building a startup ([Tweeds](https://github.com/Tweeds-org)) across backend, frontend, and an AI-detection service
-- Comfortable across the stack: Python/Django backends, TypeScript/React frontends, deployed on Vercel
-- Reach me: **soleksiienko1@gmail.com**
-
----
-
-### What I'm building right now
-
-- **CoreMetrics, v0.x.** Pushing per-process GPU attribution (NVML on Linux), tightening Windows GUI verification, and packaging cleaner Homebrew + Debian release artifacts.
-- **Tweeds (private).** A startup product: distributed backend, React frontend, and an AI-detection microservice.
-- **Systems side-quests.** Small tools that stay close to the kernel and the allocator (see the project list below).
-
----
-
-### Tech Stack
+### Tech stack
 
 ![C++23](https://img.shields.io/badge/C%2B%2B23-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
 ![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Assembly](https://img.shields.io/badge/RISC--V_ASM-283272?style=flat-square&logo=riscv&logoColor=white)
+![RISC-V ASM](https://img.shields.io/badge/RISC--V_ASM-283272?style=flat-square&logo=riscv&logoColor=white)
 
 ![SDL3](https://img.shields.io/badge/SDL-3-1a1a1a?style=flat-square)
-![CMake / Make](https://img.shields.io/badge/Make-427819?style=flat-square&logo=gnu&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=windows&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 ---
 
-### Other projects worth a look
-
-| Project | Description | Stack |
-|---|---|---|
-| **[coremetrics](https://github.com/sviatil0/coremetrics)** | Featured above. Cross-platform system monitor on a from-scratch C++23 GUI over raw SDL3. | C++23, SDL3 |
-| **[microshell](https://github.com/sviatil0/microshell)** | A small but real Unix shell: pipes, redirects, job control, signal handling. | C |
-| **[mini-allocator](https://github.com/sviatil0/mini-allocator)** | Drop-in `malloc`/`free`/`realloc` with segregated free lists, benchmarked vs glibc. | C |
-| **[gridfs](https://github.com/sviatil0/gridfs)** | A toy filesystem in safe Rust: inode tables, block bitmaps, indirect pointers, `fsck`. | Rust |
-| **[claude-code-haptic](https://github.com/sviatil0/claude-code-haptic)** | Trackpad haptic feedback for Claude Code on macOS. | TypeScript |
-| **[worndly](https://github.com/sviatil0/worndly)** &middot; [live demo](https://soleksii.pythonanywhere.com/game/login/) | Multilingual Wordle-style word game (team project). | Python, Django |
-| **[image-modifier](https://github.com/sviatil0/image-modifier)** &middot; [live demo](https://image-modifier-alpha.vercel.app) | Browser image editing tool, deployed on Vercel. | TypeScript |
-
----
-
-### GitHub Stats
+### GitHub stats
 
 <p align="center">
   <img height="165" src="https://github-readme-stats.vercel.app/api?username=sviatil0&show_icons=true&theme=github_dark&hide_border=true&count_private=true" alt="GitHub stats"/>
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sviatil0&layout=compact&theme=github_dark&hide_border=true&langs_count=8" alt="Top languages"/>
 </p>
 
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sviatil0&theme=github-dark-blue&hide_border=true" alt="GitHub streak"/>
-</p>
-
 ---
 
+### Contact
+
+- **Email:** [soleksiienko1@gmail.com](mailto:soleksiienko1@gmail.com)
+- **LinkedIn:** [linkedin.com/in/soleksii](https://www.linkedin.com/in/soleksii/)
+
 <p align="center">
-  <i>Always happy to connect and talk systems, C++, or product engineering.</i>
+  <i>Always happy to talk systems, C++, or product engineering.</i>
 </p>
