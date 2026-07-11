@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="stefan@nd terminal: Systems and AI Infrastructure" width="100%"/>
+  <img src="assets/banner.png" alt="Systems & AI Infrastructure — gold circuit lattice banner" width="100%"/>
 </p>
 
 <h1 align="center">Hi, I'm Stefan</h1>
