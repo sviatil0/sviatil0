@@ -28,6 +28,8 @@
 | **[nd-canvas-study](https://github.com/sviatil0/nd-canvas-study)** | AI exam-prep pipeline: scrapes Canvas course materials with Playwright, indexes them into a Chroma vector DB, surfaces under-prepared exam topics, and serves a local Django UI. |
 | **[email-relationship-analyzer](https://github.com/sviatil0/email-relationship-analyzer)** | Gmail relationship intelligence: OAuth2 ingest of sent threads, Gemini analysis (participants, context, sentiment), structured results stored in MongoDB. |
 | **[claude-code-haptic](https://github.com/sviatil0/claude-code-haptic)** | Trackpad haptic feedback for Claude Code on macOS; shipped as a VS Code Marketplace extension. |
+| **[crossword-generator](https://github.com/sviatil0/crossword-generator)** | Crossword-puzzle generator in C: multi-pass letter-matching placement with anagram clues and failure diagnostics; demo output in the README. |
+| **[nd-fundcomp](https://github.com/sviatil0/nd-fundcomp)** | First-semester C coursework worth keeping: Snake (X11), Conway's Game of Life, recursive fractals, animations. |
 
 <p align="center">
   <a href="https://github.com/sviatil0/coremetrics"><img src="https://raw.githubusercontent.com/sviatil0/coremetrics/main/assets/screenshot-system.png" alt="CoreMetrics System tab" width="48%"/></a>
