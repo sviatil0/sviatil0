@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Systems and AI Infrastructure — Python, TypeScript, Rust, C++" width="100%"/>
+  <img src="assets/banner.png" alt="stefan@nd terminal: Systems and AI Infrastructure" width="100%"/>
 </p>
 
 <h1 align="center">Hi, I'm Stefan</h1>
@@ -11,6 +11,7 @@
 <p align="center">
   <a href="mailto:soleksiienko1@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
   <a href="https://www.linkedin.com/in/soleksii/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://calendar.app.google/umM5GH6EJSnFatv27"><img src="https://img.shields.io/badge/Schedule_a_call-34A853?style=for-the-badge&logo=googlecalendar&logoColor=white" alt="Schedule a call"/></a>
   <a href="https://github.com/sviatil0/coremetrics"><img src="https://img.shields.io/badge/Featured-CoreMetrics-1b5e20?style=for-the-badge&logo=cplusplus&logoColor=white" alt="Featured: CoreMetrics"/></a>
 </p>
 
@@ -69,6 +70,7 @@ Previously co-founded **Tweeds**, an early-stage AI startup, where I built the p
 
 - **Email:** [soleksiienko1@gmail.com](mailto:soleksiienko1@gmail.com)
 - **LinkedIn:** [linkedin.com/in/soleksii](https://www.linkedin.com/in/soleksii/)
+- **Book a time:** [calendar.app.google/umM5GH6EJSnFatv27](https://calendar.app.google/umM5GH6EJSnFatv27)
 
 <p align="center">
   <i>Always happy to talk systems, C++, or product engineering.</i>
