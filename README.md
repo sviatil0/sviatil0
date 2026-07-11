@@ -64,16 +64,6 @@ Previously co-founded **Tweeds**, an early-stage AI startup, where I built the p
 ![macOS](https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=windows&logoColor=white)
 
----
-
-### GitHub stats
-
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=sviatil0&show_icons=true&theme=github_dark&hide_border=true&count_private=true" alt="GitHub stats"/>
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sviatil0&layout=compact&theme=github_dark&hide_border=true&langs_count=8" alt="Top languages"/>
-</p>
-
----
 
 ### Contact
 
