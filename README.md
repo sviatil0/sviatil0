@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Systems and AI Infrastructure — Python, TypeScript, Rust, C++" width="100%"/>
+</p>
+
 <h1 align="center">Hi, I'm Stefan</h1>
 
 <p align="center">
